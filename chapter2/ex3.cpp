@@ -1,21 +1,28 @@
+#include <iostream>
+
 int main() {
-  // pointer to a char
-  char *p1 = new char;
+  const int n = 5;
+  int **a = new int*[n];
 
-  // constant pointer to a char
-  char *const p2 = p1;
+  for (int i = 0; i < n; i++)
+    a[i] = new int[n];
 
-  // pointer to a constant char
-  const char *p3;
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) {
+      a[i][j] = i * n + j;
+    }
+  }
 
-  // constant pointer to a constant char
-  const char *const p4;
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) {
+      std::cout << a[i][j] << " ";
+    }
+    std::cout << std::endl;
+  }
 
-  // reference to a char
-  char& r1;
-
-  // reference to a constant char
-  const char& r2;
+  for (int i = 0; i < n; i++) 
+    delete[] a[i];
+  delete[] a;
 
   return 0;
 }

@@ -1,4 +1,5 @@
-EXECUTABLES = io namespaces new_delete default_params overloading references const_and_inline
+CXXFLAFGS = -Wall -std=c++2a
+EXECUTABLES = io namespaces new_delete default_params overloading references const_and_inline ex2 ex3 ex4 ex6
 
 all: $(EXECUTABLES) mixing_c_and_cpp_together
 
@@ -10,13 +11,6 @@ mixing_c_and_cpp_together: mixing_c_and_cpp_together.o
 
 mixing_c_and_cpp_together.o: mixing_c_and_cpp_together.cpp calc.o
 	c++ -c $< -o $@
-
-%.o: %.cpp
-	c++ -c $@ $<
-
-%.o: %.c
-	cc -c $@ $<
-
 
 .PHONY: clean
 clean:

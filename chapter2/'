@@ -1,6 +1,0 @@
-int main() {
-  // pointer to char
-  char *pc;
-
-  //
-}
